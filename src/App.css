@@ -1,6 +1,6 @@
 :root {
-  --backgroundColor: #282c35;
-  --lightBackgroundColor: #343a48;
+  --backgroundColor: #560707;
+  --lightBackgroundColor: #790808;
   --redColor: #d0021b;
   --lightRedColor: #e36776;
   --yellowColor: #fff3c8;
@@ -12,7 +12,8 @@
   --dimTextColor: #a7a9ae;
   --disabledTextColor: #57595c;
   --paragraphColor: #b4b4b4;
-  --darkBlueColor: #2c313e;
+  /* Color for Front Page left Column*/
+  --darkBlueColor: #5d0707;
   --disabledBlueColor: #1a477b;
 }
 
