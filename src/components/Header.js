@@ -4,23 +4,6 @@ import { isNil } from 'lodash';
 import { useHistory } from 'react-router';
 import { leaveRoom } from '../lib/endpoints';
 
-function Logo({ size = 25 }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 95 95"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="20" cy="20" r="20" fill="#F2994A" />
-      <circle cx="75" cy="20" r="20" fill="#348DF5" />
-      <circle cx="20" cy="75" r="20" fill="#348DF5" />
-      <circle cx="75" cy="75" r="20" fill="#348DF5" />
-    </svg>
-  );
-}
-
 export default function Header({
   auth = {},
   clearAuth,
@@ -46,7 +29,12 @@ export default function Header({
     <header>
       <Navbar>
         <Navbar.Brand>
-          <Logo /> Multibuzzer
+          <img
+            src={require('../Assets/IC Trivia FB Banner.png')} // Replace with your image path
+            alt="Logo"
+            style={{ width: '450px', height: 'auto' }} // Adjust the size as needed
+          />
+          Multibuzzer
         </Navbar.Brand>
         <div className="nav-buttons">
           {!isNil(sound) ? (
