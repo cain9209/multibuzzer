@@ -7,8 +7,8 @@
       name="description"
       content="Multiplayer buzzer system for quiz bowl"
     />
-    <meta property="og:title" content="Multibuzzer" />
-    <meta property="og:url" content="https://www.multibuzz.app" />
+    <meta property="og:title" content="Intelligence Check" />
+    <meta property="og:url" content="https://www.intelligencecheck.app" />
     <meta property="og:image" content="%PUBLIC_URL%/social.png" />
     <meta property="og:type" content="website" />
     <meta
@@ -17,14 +17,14 @@
     />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:image" content="%PUBLIC_URL%/twitter.png" />
-    <meta name="twitter:title" content="Multibuzzer" />
+    <meta name="twitter:title" content="Intelligence Check" />
     <meta
       name="twitter:description"
       content="Free online multiplayer buzzer system. Perfect for trivia night, quiz bowl, classrooms, and more."
     />
 
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- FAVICON update to Max's Logs!!!-->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/Max-64x64.jpg" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -34,13 +34,13 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="%PUBLIC_URL%/favicon-32x32.png"
+      href="%PUBLIC_URL%/Max.jpg"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="%PUBLIC_URL%/favicon-16x16.png"
+      href="%PUBLIC_URL%/Max.jpg"
     />
     <link
       rel="mask-icon"
@@ -71,8 +71,8 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Multibuzzer</title>
-    <meta name="title" content="Multibuzzer" />
+    <title>Intelligence Check Buzzer</title>
+    <meta name="title" content="Intelligence Check" />
     <meta
       name="description"
       content="Free online multiplayer buzzer system. Perfect for trivia night, quiz bowl, classrooms, and more."
@@ -84,12 +84,15 @@
       src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_GA%"
     ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      const GA_ID = '%REACT_APP_GA%';
+      if (GA_ID !== '%REACT_APP_GA%') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', GA_ID);
       }
-      gtag('js', new Date());
-      gtag('config', '%REACT_APP_GA%');
     </script>
   </head>
   <body>

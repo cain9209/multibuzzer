@@ -30,11 +30,10 @@ export default function Header({
       <Navbar>
         <Navbar.Brand>
           <img
-            src={require('../Assets/IC Trivia FB Banner.png')} // Replace with your image path
+            src={require('../Assets/IC Trivia FB Banner.png')} // Max's Logo was added here
             alt="Logo"
             style={{ width: '450px', height: 'auto' }} // Adjust the size as needed
           />
-          Multibuzzer
         </Navbar.Brand>
         <div className="nav-buttons">
           {!isNil(sound) ? (
