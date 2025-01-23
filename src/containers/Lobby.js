@@ -212,21 +212,21 @@ export default function Lobby({ setAuth }) {
           <img
             src={require('../Assets/IntelligenceAddGaels.png')}
             alt="Facebook"
-            style={{ width: '350px', margin: '10px' }}
+            style={{ width: '350px', margin: '20px' }}
           />
         </a>
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img
             src={require('../Assets/IntelligenceAddTanners.png')}
             alt="Twitter"
-            style={{ width: '350px', margin: '10px' }}
+            style={{ width: '350px', margin: '20px' }}
           />
         </a>
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img
             src={require('../Assets/background.png')}
             alt="Instagram"
-            style={{ width: '350px', margin: '10px' }}
+            style={{ width: '350px', margin: '20px' }}
           />
         </a>
       </div>

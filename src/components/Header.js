@@ -30,18 +30,19 @@ export default function Header({
       <Navbar
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
         }}
       >
-        <Navbar.Brand>
+        <Navbar.Brand style={{ position: 'absolute', top: 0, left: 0 }}>
           <div
-            style={{ display: 'flex', flexDirection: 'column', width: '450px' }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '300px',
+            }}
           >
             <img
               src={require('../Assets/IC Trivia FB Banner.png')}
               alt="IC Trivia FB Banner"
-              style={{ height: 'auto' }}
             />
           </div>
         </Navbar.Brand>
