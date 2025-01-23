@@ -116,14 +116,20 @@ body {
 /* LOBBY */
 
 .App #lobby-left {
-  flex-grow: 50;
+  flex-grow: 500;
   flex-basis: 30px;
-  background-color: var(--darkBlueColor);
+  background-image: url('./Assets/background.png');
+  background-size: 100%; /* Zoom out the image */
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
 
+  /* Add a fading effect with a linear gradient */
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent),
+                    url('./Assets/background.png');
+}
 .App #lobby-right {
   flex-grow: 60;
   flex-basis: 280px;
