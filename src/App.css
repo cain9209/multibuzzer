@@ -56,15 +56,17 @@ body {
 }
 
 .App header nav {
-  justify-content: space-between;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center;    /* Center the content vertically */
 }
 
 .App header svg {
   margin-right: 10px;
 }
 
-.App header .nav-buttons > :not(:first-child) {
-  margin-left: 5px;
+.App header .nav-buttons {
+  display: flex;           /* Enable flexbox for the button container */
+  justify-content: center; /* Center the buttons within their container */
 }
 
 /* BUTTON */

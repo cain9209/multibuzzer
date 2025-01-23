@@ -17,6 +17,7 @@ Please open an issue if you experience a bug or have product feedback!
 - Run `yarn client` to start application after starting the server on localhost:4001
 
 ### Deployment
+
 `npm install howler` for sound
 
 - Build React app using `yarn build`

@@ -27,14 +27,25 @@ export default function Header({
 
   return (
     <header>
-      <Navbar>
+      <Navbar
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <Navbar.Brand>
-          <img
-            src={require('../Assets/IC Trivia FB Banner.png')} // Max's Logo was added here
-            alt="Logo"
-            style={{ width: '450px', height: 'auto' }} // Adjust the size as needed
-          />
+          <div
+            style={{ display: 'flex', flexDirection: 'column', width: '450px' }}
+          >
+            <img
+              src={require('../Assets/IC Trivia FB Banner.png')}
+              alt="IC Trivia FB Banner"
+              style={{ height: 'auto' }}
+            />
+          </div>
         </Navbar.Brand>
+
         <div className="nav-buttons">
           {!isNil(sound) ? (
             <button className="text-button" onClick={() => setSound()}>
