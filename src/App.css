@@ -133,8 +133,11 @@ body {
 .App #lobby-right {
   flex-grow: 60;
   flex-basis: 280px;
+  background-image: url('./Assets/MaxD20.png');
+  background-size: 100%;  /* Adjust this value to control zoom */
+  background-repeat: no-repeat;
+  background-position: center; 
 }
-
 .container-half {
   width: 100%;
   max-width: 500px;
