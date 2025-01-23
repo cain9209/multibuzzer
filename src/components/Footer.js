@@ -4,13 +4,17 @@ import { Container } from 'react-bootstrap';
 export function FooterSimple() {
   return (
     <div id="footer-simple">
-      Built on{' '}
+      <p>GitHubCreator</p>
       <a
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/wsun/multibuzzer"
       >
-        open source
+        <img
+          src="./MaxD20.png"
+          alt="Built on open source"
+          style={{ width: '100px', height: 'auto' }}
+        />
       </a>
     </div>
   );

@@ -6,7 +6,7 @@
   --yellowColor: #fff3c8;
   --greenColor: #a7ff91;
   --lightBlueColor: #dbe4f0;
-  --hoverBlueColor:none;
+  --hoverBlueColor: none;
   --brightBlueColor: #2f3031;
   --activeColor: #3b404b;
   --dimTextColor: #a7a9ae;
@@ -112,34 +112,11 @@ body {
 }
 
 /* FOOTER */
-.App footer {
-  background-color: var(--backgroundColor);
-  padding: 30px 0;
-  color: var(--paragraphColor);
-  text-align: center;
-  margin-top: 40px;
-}
-
-.App #footer-simple {
-  padding: 30px 0;
-  color: var(--paragraphColor);
-}
-
-.App footer a,
-.App #footer-simple a {
-  color: var(--lightBlueColor);
-}
-
-.App footer a:hover,
-.App #footer-simple a:hover {
-  text-decoration: none;
-  opacity: 0.5;
-}
 
 /* LOBBY */
 
 .App #lobby-left {
-  flex-grow: 500;
+  flex-grow: 50;
   flex-basis: 30px;
   background-color: var(--darkBlueColor);
   display: flex;
@@ -167,8 +144,8 @@ body {
 
 .App #lobby-left .container-half {
   margin-left: auto;
-  margin-top: 0px;
-  padding-right: 1000px;
+  margin-top: 250px;
+  padding-right: 550px;
 }
 
 .App #lobby-right .container-half {
@@ -196,18 +173,19 @@ body {
 .App .touts h4 {
   font-weight: 500;
   font-size: 1.2rem;
-  line-height: 140%;
+  line-height: 100%;
 }
 
 .App .touts p {
   color: var(--paragraphColor);
-  line-height: 140%;
+  line-height: 100%;
   font-size: 1rem;
+  display: inline-block; /* Add this */
 }
 
 .App .lobby-form h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 100px;
 }
 
 .App .lobby-form .form-group:not(:first-of-type) {
@@ -285,7 +263,7 @@ body {
   justify-content: center;
 }
 
-.App #buzzer > button { 
+.App #buzzer > button {
   width: 300px; /* Adjust as needed */
   height: 300px; /* Adjust as needed */
   border-radius: 0;

@@ -199,46 +199,25 @@ export default function Lobby({ setAuth }) {
     </Form>
   );
 
-  const touts = (
-    <div className="touts">
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img
-            src={require('../Assets/IntelligenceAddGaels.png')}
-            alt="Facebook"
-            style={{ width: '350px', margin: '20px' }}
-          />
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img
-            src={require('../Assets/IntelligenceAddTanners.png')}
-            alt="Twitter"
-            style={{ width: '350px', margin: '20px' }}
-          />
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img
-            src={require('../Assets/background.png')}
-            alt="Instagram"
-            style={{ width: '350px', margin: '20px' }}
-          />
-        </a>
-      </div>
-    </div>
-  );
+  // const touts = (
+  //   <div className="touts">
+  //     <div>
+  //       <h4>Easy to Use</h4>
+  //       <p>
+  //         No account needed - just create a room and share the link. Players can
+  //         join and buzz in from any device.
+  //       </p>
+  //     </div>
+  //   </div>
+  // );
+
   return (
     <main id="lobby">
       <section className="primary d-none d-md-flex">
         <div id="lobby-left">
           <div>
             <Header />
-            <section className="container-half">{touts}</section>
+            <section className="container-half"></section>
           </div>
           <section className="container-half">
             <FooterSimple />
@@ -252,7 +231,7 @@ export default function Lobby({ setAuth }) {
         <Header />
         <Container className="container-mobile">{form}</Container>
         <div className="divider" />
-        <Container className="container-mobile">{touts}</Container>
+        <Container className="container-mobile"></Container>
       </section>
       <Footer mobileOnly />
     </main>

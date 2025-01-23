@@ -37,7 +37,7 @@ export default function Header({
             style={{
               display: 'flex',
               flexDirection: 'column',
-              width: '500px',
+              width: '300px',
             }}
           >
             <img
