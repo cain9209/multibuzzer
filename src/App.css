@@ -1,12 +1,12 @@
 :root {
   --backgroundColor: #560707;
-  --lightBackgroundColor: #e4e0dd;
+  --lightBackgroundColor: none;
   --redColor: #d0021b;
   --lightRedColor: #e36776;
   --yellowColor: #fff3c8;
   --greenColor: #a7ff91;
   --lightBlueColor: #dbe4f0;
-  --hoverBlueColor: #72767a;
+  --hoverBlueColor:none;
   --brightBlueColor: #2f3031;
   --activeColor: #3b404b;
   --dimTextColor: #a7a9ae;
@@ -23,7 +23,7 @@ body {
 }
 
 .App {
-  color: white;
+  color: rgb(171, 168, 168);
   font-family: 'Inter', sans-serif;
 }
 
@@ -70,14 +70,22 @@ body {
 }
 
 /* BUTTON */
-
-.App button {
+.App game button {
   background: none;
   font-weight: 700;
   color: white;
   padding: 8px 10px;
   border-radius: 4px;
   border: solid 1px white;
+}
+
+.App button {
+  background-color: var(--brightBlueColor); /* Use your blue color variable */
+  font-weight: 700;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: solid 1px rgb(12, 12, 12);
 }
 
 .App button:disabled {
@@ -131,8 +139,8 @@ body {
 /* LOBBY */
 
 .App #lobby-left {
-  flex-grow: 40;
-  flex-basis: 320px;
+  flex-grow: 500;
+  flex-basis: 30px;
   background-color: var(--darkBlueColor);
   display: flex;
   flex-direction: column;
@@ -141,12 +149,12 @@ body {
 
 .App #lobby-right {
   flex-grow: 60;
-  flex-basis: 480px;
+  flex-basis: 280px;
 }
 
 .container-half {
   width: 100%;
-  max-width: 375px;
+  max-width: 500px;
   padding-right: 40px;
   padding-left: 40px;
 }
@@ -159,13 +167,13 @@ body {
 
 .App #lobby-left .container-half {
   margin-left: auto;
-  margin-top: 100px;
-  padding-right: 60px;
+  margin-top: 0px;
+  padding-right: 1000px;
 }
 
 .App #lobby-right .container-half {
   margin-right: auto;
-  margin-top: 160px;
+  margin-top: 400px;
   padding-left: 60px;
 }
 
@@ -258,7 +266,7 @@ body {
 
 .App #game .container {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .App #room-title {
@@ -271,17 +279,20 @@ body {
 }
 
 .App #buzzer {
-  margin-top: 20px;
+  margin-top: 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.App #buzzer > button {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-color: var(--brightBlueColor);
+.App #buzzer > button { 
+  width: 300px; /* Adjust as needed */
+  height: 300px; /* Adjust as needed */
+  border-radius: 0;
+  background-image: url('Assets/MaxD20.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
   color: white;
   border: none;
   font-weight: 700;
@@ -309,11 +320,11 @@ body {
 }
 
 .App .settings {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .App .settings > .button-container:not(:first-child) {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 .App .settings button:hover:disabled {

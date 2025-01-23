@@ -144,7 +144,7 @@ export default function Table(game) {
         <section>
           <p id="room-title">Room {game.gameID}</p>
           {!game.isConnected ? (
-            <p className="warning">Disconnected - attempting to reconnect...</p>
+            <p>Disconnected - attempting to reconnect...</p>
           ) : null}
           <div id="buzzer">
             <button
@@ -160,24 +160,20 @@ export default function Table(game) {
             </button>
           </div>
           {isHost ? (
-            <div className="settings">
-              <div className="button-container">
-                <button
-                  className="text-button"
-                  onClick={() => game.moves.toggleLock()}
-                >
-                  {game.G.locked ? 'Unlock buzzers' : 'Lock buzzers'}
-                </button>
-              </div>
-              <div className="button-container">
-                <button
-                  disabled={isEmpty(game.G.queue)}
-                  onClick={() => game.moves.resetBuzzers()}
-                >
-                  Reset all buzzers
-                </button>
-              </div>
-              <div className="divider" />
+            <div>
+              <button
+                className="lock-button"
+                onClick={() => game.moves.toggleLock()}
+              >
+                {game.G.locked ? 'Unlock buzzers' : 'Lock buzzers'}
+              </button>
+              <button
+                className="reset-button"
+                disabled={isEmpty(game.G.queue)}
+                onClick={() => game.moves.resetBuzzers()}
+              >
+                Reset all buzzers
+              </button>
             </div>
           ) : null}
         </section>
@@ -185,16 +181,9 @@ export default function Table(game) {
           <p>Players Buzzed</p>
           <ul>
             {buzzedPlayers.map(({ id, name, timestamp, connected }, i) => (
-              <li key={id} className={isHost ? 'resettable' : null}>
-                <div
-                  className="player-sign"
-                  onClick={() => {
-                    if (isHost) {
-                      game.moves.resetBuzzer(id);
-                    }
-                  }}
-                >
-                  <div className={`name ${!connected ? 'dim' : ''}`}>
+              <li key={id}>
+                <div className="player-sign">
+                  <div className="player-name">
                     {name}
                     {!connected ? (
                       <AiOutlineDisconnect className="disconnected" />
@@ -203,7 +192,7 @@ export default function Table(game) {
                     )}
                   </div>
                   {i > 0 ? (
-                    <div className="mini">
+                    <div className="time-diff">
                       {timeDisplay(timestamp - queue[0].timestamp)}
                     </div>
                   ) : null}
@@ -217,7 +206,7 @@ export default function Table(game) {
           <ul>
             {activePlayers.map(({ id, name, connected }) => (
               <li key={id}>
-                <div className={`name ${!connected ? 'dim' : ''}`}>
+                <div className="player-name">
                   {name}
                   {!connected ? (
                     <AiOutlineDisconnect className="disconnected" />

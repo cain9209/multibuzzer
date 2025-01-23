@@ -37,7 +37,7 @@ export default function Header({
             style={{
               display: 'flex',
               flexDirection: 'column',
-              width: '300px',
+              width: '500px',
             }}
           >
             <img
@@ -49,14 +49,12 @@ export default function Header({
 
         <div className="nav-buttons">
           {!isNil(sound) ? (
-            <button className="text-button" onClick={() => setSound()}>
+            <button onClick={() => setSound()}>
               {sound ? 'Turn off sound' : 'Turn on sound'}
             </button>
           ) : null}
           {clearAuth ? (
-            <button className="text-button" onClick={() => leave()}>
-              Leave game
-            </button>
+            <button onClick={() => leave()}>Leave game</button>
           ) : null}
         </div>
       </Navbar>
