@@ -18,8 +18,8 @@ export default function Table(game) {
 
   const buzzSound = new Howl({
     src: [
-      `${process.env.PUBLIC_URL}/shortBuzz.webm`,
-      `${process.env.PUBLIC_URL}/shortBuzz.mp3`,
+      `${process.env.PUBLIC_URL}/beep.wav`,
+      // `${process.env.PUBLIC_URL}/assets/beep.wav`,
     ],
     volume: 0.5,
     rate: 1.5,
