@@ -9,9 +9,10 @@ Built using Create React App and boardgame.io
 Please open an issue if you experience a bug or have product feedback!
 
 ### Development
-
-rm yarn.lock
-yarn install
+If yarn is experiencing issues:
+`rm yarn.lock`
+`yarn cache clean`
+`yarn install`
 
 Make sure you have Node.js v20.12.2!!!!!
 
