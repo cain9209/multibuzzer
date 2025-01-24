@@ -5,7 +5,7 @@ export function FooterSimple() {
   return (
     <div id="footer-simple">
       <p>Social</p>
-      <div className="image-container">
+      <div className="image-container-mobile">
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -54,18 +54,19 @@ export default function Footer({ mobileOnly = false }) {
       <Container>
         <div id="footer-simple">
           <p>Social</p>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/wsun/multibuzzer"
-          >
-            <img
-              src="./MaxD20.png"
-              alt="Built on open source"
-              style={{ width: '100px', height: 'auto' }}
-            />
-            <img src="./Insta.jpg" style={{ width: '100px', height: 'auto' }} />
-          </a>
+          <div className="image-container">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/wsun/multibuzzer"
+            >
+              <img
+                src="./MaxD20.png"
+                alt="Built on open source"
+                style={{ width: '100px', height: 'auto' }}
+              />
+            </a>
+          </div>
         </div>
       </Container>
     </footer>
