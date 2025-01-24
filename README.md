@@ -9,6 +9,7 @@ Built using Create React App and boardgame.io
 Please open an issue if you experience a bug or have product feedback!
 
 ### Development
+
 If yarn is experiencing issues:
 `rm yarn.lock`
 `yarn cache clean`
