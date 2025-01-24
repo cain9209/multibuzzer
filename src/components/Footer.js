@@ -5,7 +5,7 @@ export function FooterSimple() {
   return (
     <div id="footer-simple">
       <p>Social</p>
-      <div className="image-container-mobile">
+      <div className="image-container">
         <a
           target="_blank"
           rel="noopener noreferrer"

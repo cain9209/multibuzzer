@@ -409,11 +409,11 @@ body {
 
 .image-container img {
   margin: 20px;
-  animation: dice-roll 5s linear infinite; /* Use dice-roll animation */
+  animation: dice-roll 15s linear infinite; /* Use dice-roll animation */
 }
 
 .image-container img:not(:first-child):not(:last-child) {
-  animation: dice-roll 5s linear infinite; /* Use dice-roll animation */
+  animation: dice-roll 15s linear infinite; /* Use dice-roll animation */
 }
 
 @keyframes dice-roll {
