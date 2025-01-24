@@ -39,7 +39,7 @@ body {
 }
 
 .App header nav {
-  min-height: 60px;
+  min-height: 0px;
 }
 
 .App header .navbar-brand {
@@ -111,7 +111,14 @@ body {
   color: white;
 }
 
-/* FOOTER */
+/* FOOTER Mobile approved */
+
+.App #footer-simple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Optional: Stack elements vertically */
+}
 
 /* LOBBY */
 
@@ -127,16 +134,20 @@ body {
   justify-content: space-between;
 
   /* Add a fading effect with a linear gradient */
-  background-image: linear-gradient(to bottom, rgba(247, 232, 232, 0.5), transparent),
-                    url('./Assets/background.png');
+  background-image: linear-gradient(
+      to bottom,
+      rgba(247, 232, 232, 0.5),
+      transparent
+    ),
+    url('./Assets/background.png');
 }
 .App #lobby-right {
   flex-grow: 60;
   flex-basis: 280px;
   /* background-image: url('./Assets/MaxD20.png'); */
-  background-size: 100%;  /* Adjust this value to control zoom */
+  background-size: 100%; /* Adjust this value to control zoom */
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
 }
 .container-half {
   width: 100%;
@@ -145,16 +156,16 @@ body {
   padding-left: 40px;
 }
 
-@media screen and (max-width: 991px) {
-  .container-half {
-    max-width: 350px;
+@media screen and (max-width: 768px) {
+  .App #lobby-left .container-half {
+    padding-right: 20%; /* Adjust as needed */
+    margin-top: 100px;
   }
-}
 
-.App #lobby-left .container-half {
-  margin-left: auto;
-  margin-top: 250px;
-  padding-right: 550px;
+  .App #lobby-right .container-half {
+    padding-left: 10%;
+    margin-top: 200px;
+  }
 }
 
 .App #lobby-right .container-half {
@@ -164,8 +175,8 @@ body {
 }
 
 .App #lobby .container-mobile {
-  margin-top: 40px;
-  padding: 0 30px;
+  margin-top: 80px;
+  padding: 25px;
   max-width: 400px;
 }
 
@@ -257,7 +268,7 @@ body {
 }
 
 .App #room-title {
-  margin-bottom: 51px;
+  margin-bottom: 50px;
 }
 
 .App .warning {
@@ -266,15 +277,15 @@ body {
 }
 
 .App #buzzer {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
 .App #buzzer > button {
-  width: 400px; /* Adjust as needed */
-  height: 400px; /* Adjust as needed */
+  width: 300px; /* Adjust as needed */
+  height: 300px; /* Adjust as needed */
   border-radius: px;
   background-image: url('Assets/MaxD20.png');
   background-size: contain;
@@ -287,7 +298,7 @@ body {
   user-select: none;
 
   /* Add a text border */
-  -webkit-text-stroke: 3px rgb(8, 8, 8); 
+  -webkit-text-stroke: 3px rgb(8, 8, 8);
 }
 
 .App #buzzer > button:hover {
@@ -304,8 +315,8 @@ body {
 
 @media screen and (max-width: 767px) {
   .App #buzzer > button {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 400px;
+    max-height: 400px;
   }
 }
 
@@ -314,7 +325,7 @@ body {
 }
 
 .App .settings > .button-container:not(:first-child) {
-  margin-top: 50px;
+  margin-top: 550px;
 }
 
 .App .settings button:hover:disabled {
@@ -387,4 +398,44 @@ body {
 
 .App .dim {
   opacity: 0.5;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px; 
+  perspective: 4000px; /* Add perspective for 3D effect */
+}
+
+.image-container img {
+  margin: 20px;
+  animation: coin-spin 90s linear infinite; 
+}
+
+.image-container img:not(:first-child):not(:last-child) {
+  animation: coin-spin 90s linear infinite; 
+}
+
+@keyframes coin-spin {
+  0% { transform: rotateY(0deg) translateZ(0px); }
+  5% { transform: rotateY(18deg) translateZ(5px); }
+  10% { transform: rotateY(36deg) translateZ(10px); }
+  15% { transform: rotateY(54deg) translateZ(15px); }
+  20% { transform: rotateY(72deg) translateZ(20px); }
+  25% { transform: rotateY(90deg) translateZ(25px); }
+  30% { transform: rotateY(108deg) translateZ(30px); }
+  35% { transform: rotateY(126deg) translateZ(35px); }
+  40% { transform: rotateY(144deg) translateZ(40px); }
+  45% { transform: rotateY(162deg) translateZ(45px); }
+  50% { transform: rotateY(180deg) translateZ(50px); }
+  55% { transform: rotateY(198deg) translateZ(55px); }
+  60% { transform: rotateY(216deg) translateZ(60px); }
+  65% { transform: rotateY(234deg) translateZ(65px); }
+  70% { transform: rotateY(252deg) translateZ(70px); }
+  75% { transform: rotateY(270deg) translateZ(75px); }
+  80% { transform: rotateY(288deg) translateZ(80px); }
+  85% { transform: rotateY(306deg) translateZ(85px); }
+  90% { transform: rotateY(324deg) translateZ(90px); }
+  95% { transform: rotateY(342deg) translateZ(95px); }
+  100% { transform: rotateY(360deg) translateZ(100px); }
 }

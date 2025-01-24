@@ -4,18 +4,42 @@ import { Container } from 'react-bootstrap';
 export function FooterSimple() {
   return (
     <div id="footer-simple">
-      <p>GitHubCreator</p>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/wsun/multibuzzer"
-      >
-        <img
-          src="./MaxD20.png"
-          alt="Built on open source"
-          style={{ width: '100px', height: 'auto' }}
-        />
-      </a>
+      <p>Social</p>
+      <div className="image-container">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.ictrivia.com/"
+        >
+          <img
+            src="./Max.jpg"
+            alt="Built on open source"
+            style={{ width: '180px', height: 'auto' }}
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/wsun/multibuzzer"
+        >
+          <img
+            src="./MaxD20.png"
+            alt="Built on open source"
+            style={{ width: '80px', height: 'auto' }}
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/intelligencechecktrivia"
+        >
+          <img
+            src="./Insta.jpg"
+            alt="Built on open source"
+            style={{ width: '80px', height: 'auto' }}
+          />
+        </a>
+      </div>
     </div>
   );
 }
@@ -28,14 +52,19 @@ export default function Footer({ mobileOnly = false }) {
   return (
     <footer className={mobileOnly ? 'd-block d-md-none' : null}>
       <Container>
-        <div>
-          Built on{' '}
+        <div id="footer-simple">
+          <p>Social</p>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/wsun/multibuzzer"
           >
-            open source
+            <img
+              src="./MaxD20.png"
+              alt="Built on open source"
+              style={{ width: '100px', height: 'auto' }}
+            />
+            <img src="./Insta.jpg" style={{ width: '100px', height: 'auto' }} />
           </a>
         </div>
       </Container>

@@ -40,10 +40,7 @@ export default function Header({
               width: '400px',
             }}
           >
-            <img
-              src={require('../Assets/IC Trivia FB Banner.png')}
-              alt="IC Trivia FB Banner"
-            />
+            {/* Removed the image tag */}
           </div>
         </Navbar.Brand>
 
