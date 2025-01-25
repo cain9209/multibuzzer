@@ -22,8 +22,14 @@ app.use(
   serve(FRONTEND_PATH, {
     setHeaders: (res) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      res.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PUT, DELETE, OPTIONS'
+      );
+      res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Content-Type, Authorization'
+      );
     },
   })
 );
@@ -57,10 +63,10 @@ app.use(
   ratelimit({
     driver: 'memory',
     db: db,
-    duration: 60000,  // 1-minute window
+    duration: 60000, // 1-minute window
     errorMessage: 'Too many requests, please try again later.',
     id: (ctx) => ctx.ip,
-    max: 25,  // Max 25 requests per window
+    max: 25, // Max 25 requests per window
     whitelist: (ctx) => {
       return ctx.path.startsWith('/games') && ctx.path.includes(Buzzer.name);
     },
@@ -77,7 +83,10 @@ app.use(async (ctx, next) => {
 server.app.use(async (ctx, next) => {
   await next();
   if (ctx.status === 404) {
-    await serve(FRONTEND_PATH)(Object.assign(ctx, { path: 'index.html' }), next);
+    await serve(FRONTEND_PATH)(
+      Object.assign(ctx, { path: 'index.html' }),
+      next
+    );
   }
 });
 
