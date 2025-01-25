@@ -67,7 +67,7 @@ export default function Footer({ mobileOnly = false }) {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/wsun/multibuzzer"
+              href="https://www.ictrivia.com/"
             >
               <img
                 src="./IC Trivia FB Banner.png"
@@ -85,7 +85,7 @@ export default function Footer({ mobileOnly = false }) {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/wsun/multibuzzer"
+              href="https://github.com/cain9209/multibuzzer"
             >
               <img
                 src="./MaxD20.png"
