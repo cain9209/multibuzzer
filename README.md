@@ -33,3 +33,5 @@ if prettier error is thrown `npx prettier --write .`
 
 - Build React app using `yarn build`
 - Run `yarn start` to run the Koa server, which will serve the built React app (via '/build'), as well as operate both the boardgame.io server and lobby
+
+ start
