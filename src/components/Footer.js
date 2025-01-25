@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import MaxD20 from '../Assets/MaxD20.png';
 
 export function FooterSimple() {
   return (
@@ -54,7 +55,32 @@ export default function Footer({ mobileOnly = false }) {
       <Container>
         <div id="footer-simple">
           <p>Social</p>
-          <div className="image-container">
+          <div
+            className="image-container"
+            style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}
+          >
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/wsun/multibuzzer"
+            >
+              <img
+                src="./MaxD20.png"
+                alt="Built on open source"
+                style={{ width: '100px', height: 'auto' }}
+              />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/wsun/multibuzzer"
+            >
+              <img
+                src="./MaxD20.png"
+                alt="Built on open source"
+                style={{ width: '100px', height: 'auto' }}
+              />
+            </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
