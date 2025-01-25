@@ -62,12 +62,12 @@ export default function Footer({ mobileOnly = false }) {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/wsun/multibuzzer"
+              href="https://www.ictrivia.com/"
             >
               <img
-                src="./MaxD20.png"
+                src="./Max.jpg"
                 alt="Built on open source"
-                style={{ width: '100px', height: 'auto' }}
+                style={{ width: '170px', height: '80px' }}
               />
             </a>
             <a
@@ -84,10 +84,10 @@ export default function Footer({ mobileOnly = false }) {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/wsun/multibuzzer"
+              href="https://www.instagram.com/intelligencechecktrivia"
             >
               <img
-                src="./MaxD20.png"
+                src="./Insta.jpg"
                 alt="Built on open source"
                 style={{ width: '100px', height: 'auto' }}
               />
