@@ -57,17 +57,29 @@ export default function Footer({ mobileOnly = false }) {
           <p>Social</p>
           <div
             className="image-container"
-            style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '20px',
+            }}
           >
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.ictrivia.com/"
+              href="https://github.com/wsun/multibuzzer"
             >
               <img
-                src="./Max.jpg"
+                src="./IC Trivia FB Banner.png"
                 alt="Built on open source"
-                style={{ width: '170px', height: '80px' }}
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '15px', // Rounded corners for app icon effect
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Adds shadow effect
+                  objectFit: 'cover', // Ensures the image fills the container properly
+                  border: '1px solid #ddd', // Optional border for definition
+                }}
               />
             </a>
             <a
@@ -77,8 +89,11 @@ export default function Footer({ mobileOnly = false }) {
             >
               <img
                 src="./MaxD20.png"
-                alt="Built on open source"
-                style={{ width: '100px', height: 'auto' }}
+                alt="D20"
+                style={{
+                  width: '50px',
+                  height: '50px',
+                }}
               />
             </a>
             <a
@@ -88,8 +103,15 @@ export default function Footer({ mobileOnly = false }) {
             >
               <img
                 src="./Insta.jpg"
-                alt="Built on open source"
-                style={{ width: '100px', height: 'auto' }}
+                alt="Instagram Profile"
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '15px', // Rounded corners for app icon effect
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Adds shadow effect
+                  objectFit: 'cover', // Ensures the image fills the container properly
+                  border: '1px solid #ddd', // Optional border for definition
+                }}
               />
             </a>
           </div>
