@@ -8,7 +8,7 @@ import Header from '../components/Header';
 export default function Table(game) {
   const [loaded, setLoaded] = useState(false);
   const [buzzed, setBuzzer] = useState(
-    some(game.G.queue, (o) => o.id === game.playerID)
+    some(game?.G?.queue, (o) => o.id === game?.playerID)
   );
   const [lastBuzz, setLastBuzz] = useState(null);
   const [sound, setSound] = useState(false);
@@ -17,10 +17,7 @@ export default function Table(game) {
   const queueRef = useRef(null);
 
   const buzzSound = new Howl({
-    src: [
-      `${process.env.PUBLIC_URL}/beep.wav`,
-      // `${process.env.PUBLIC_URL}/assets/beep.wav`,
-    ],
+    src: [`${process.env.PUBLIC_URL}/beep.wav`],
     volume: 0.5,
     rate: 1.5,
   });
@@ -33,25 +30,22 @@ export default function Table(game) {
   };
 
   useEffect(() => {
-    console.log(game.G.queue, Date.now());
-    // reset buzzer based on game
-    if (!game.G.queue[game.playerID]) {
-      // delay the reset, in case game state hasn't reflected your buzz yet
+    console.log(game?.G?.queue, Date.now());
+
+    if (!game?.G?.queue?.[game?.playerID]) {
       if (lastBuzz && Date.now() - lastBuzz < 500) {
         setTimeout(() => {
           const queue = queueRef.current;
-          if (queue && !queue[game.playerID]) {
+          if (queue && !queue[game?.playerID]) {
             setBuzzer(false);
           }
         }, 500);
       } else {
-        // immediate reset, if it's been awhile
         setBuzzer(false);
       }
     }
 
-    // reset ability to play sound if there is no pending buzzer
-    if (isEmpty(game.G.queue)) {
+    if (isEmpty(game?.G?.queue)) {
       setSoundPlayed(false);
     } else if (loaded) {
       playSound();
@@ -61,8 +55,8 @@ export default function Table(game) {
       setLoaded(true);
     }
 
-    queueRef.current = game.G.queue;
-  }, [game.G.queue]);
+    queueRef.current = game?.G?.queue;
+  }, [game?.G?.queue, game?.playerID, lastBuzz, loaded, playSound]);
 
   const attemptBuzz = () => {
     if (!buzzed) {
@@ -73,7 +67,6 @@ export default function Table(game) {
     }
   };
 
-  // spacebar will buzz
   useEffect(() => {
     function onKeydown(e) {
       if (e.keyCode === 32 && !e.repeat) {
@@ -81,16 +74,17 @@ export default function Table(game) {
         e.preventDefault();
       }
     }
+
     window.addEventListener('keydown', onKeydown);
     return () => window.removeEventListener('keydown', onKeydown);
   }, []);
 
-  const players = !game.gameMetadata
+  const players = !game?.gameMetadata
     ? []
     : game.gameMetadata
         .filter((p) => p.name)
         .map((p) => ({ ...p, id: String(p.id) }));
-  // host is lowest active user
+
   const firstPlayer =
     get(
       sortBy(players, (p) => parseInt(p.id, 10)).filter((p) => p.connected),
@@ -98,21 +92,20 @@ export default function Table(game) {
     ) || null;
   const isHost = get(firstPlayer, 'id') === game.playerID;
 
-  const queue = sortBy(values(game.G.queue), ['timestamp']);
+  const queue = sortBy(values(game?.G?.queue), ['timestamp']);
   const buzzedPlayers = queue
     .map((p) => {
       const player = players.find((player) => player.id === p.id);
-      if (!player) {
-        return {};
-      }
-      return {
-        ...p,
-        name: player.name,
-        connected: player.connected,
-      };
+      return player
+        ? {
+            ...p,
+            name: player.name,
+            connected: player.connected,
+          }
+        : {};
     })
     .filter((p) => p.name);
-  // active players who haven't buzzed
+
   const activePlayers = orderBy(
     players.filter((p) => !some(queue, (q) => q.id === p.id)),
     ['connected', 'name'],
@@ -187,9 +180,7 @@ export default function Table(game) {
                     {name}
                     {!connected ? (
                       <AiOutlineDisconnect className="disconnected" />
-                    ) : (
-                      ''
-                    )}
+                    ) : null}
                   </div>
                   {i > 0 ? (
                     <div className="time-diff">
@@ -210,9 +201,7 @@ export default function Table(game) {
                   {name}
                   {!connected ? (
                     <AiOutlineDisconnect className="disconnected" />
-                  ) : (
-                    ''
-                  )}
+                  ) : null}
                 </div>
               </li>
             ))}
