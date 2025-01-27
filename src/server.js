@@ -13,30 +13,21 @@ const server = Server({
 });
 
 const PORT = process.env.PORT || 4001;
-const { app } = server;
+const DEPLOYED_URL = 'https://multibuzzer-bchu.vercel.app'; // Update this to match your deployment
 
-const FRONTEND_PATH = path.join(__dirname, '../build');
-
-// Serve static files with enhanced CORS settings
-app.use(
-  serve(FRONTEND_PATH, {
-    setHeaders: (res) => {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader(
-        'Access-Control-Allow-Methods',
-        'GET, POST, PUT, DELETE, OPTIONS'
-      );
-      res.setHeader(
-        'Access-Control-Allow-Headers',
-        'Content-Type, Authorization'
-      );
-    },
-  })
+server.run(
+  {
+    port: PORT,
+    lobbyConfig: { uuid: () => randomString(6, 'ABCDEFGHJKLMNPQRSTUVWXYZ') },
+  },
+  () => {
+    console.log(`Server running on ${DEPLOYED_URL}`);
+  }
 );
 
-// Middleware to handle CORS for API requests
+// Update CORS settings to allow requests from the frontend
 app.use(async (ctx, next) => {
-  ctx.set('Access-Control-Allow-Origin', '*');
+  ctx.set('Access-Control-Allow-Origin', DEPLOYED_URL);
   ctx.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   ctx.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
