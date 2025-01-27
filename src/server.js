@@ -7,6 +7,9 @@ import Koa from 'koa';
 const Server = require('boardgame.io/server').Server;
 const Buzzer = require('./lib/store').Buzzer;
 
+// Create a Koa app instance (Fix for "app is not defined" error)
+const app = new Koa();
+
 const server = Server({
   games: [Buzzer],
   generateCredentials: () => uuidv4(),
@@ -15,17 +18,7 @@ const server = Server({
 const PORT = process.env.PORT || 4001;
 const DEPLOYED_URL = 'https://multibuzzer-bchu.vercel.app'; // Update this to match your deployment
 
-server.run(
-  {
-    port: PORT,
-    lobbyConfig: { uuid: () => randomString(6, 'ABCDEFGHJKLMNPQRSTUVWXYZ') },
-  },
-  () => {
-    console.log(`Server running on ${DEPLOYED_URL}`);
-  }
-);
-
-// Update CORS settings to allow requests from the frontend
+// CORS settings to allow requests from the frontend
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', DEPLOYED_URL);
   ctx.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -70,8 +63,12 @@ app.use(async (ctx, next) => {
   await next();
 });
 
+// Serve static files (frontend path must be defined)
+const FRONTEND_PATH = path.join(__dirname, '../client/build');
+app.use(serve(FRONTEND_PATH));
+
 // Fallback route to serve index.html for client-side routing
-server.app.use(async (ctx, next) => {
+app.use(async (ctx, next) => {
   await next();
   if (ctx.status === 404) {
     await serve(FRONTEND_PATH)(
@@ -80,6 +77,9 @@ server.app.use(async (ctx, next) => {
     );
   }
 });
+
+// Attach the Koa app to the server
+server.app = app;
 
 // Start the server with lobby configuration
 server.run(
