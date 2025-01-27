@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import MaxD20 from '../Assets/MaxD20.png';
 
 export function FooterSimple() {
   return (
