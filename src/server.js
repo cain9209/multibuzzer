@@ -3,11 +3,10 @@ import serve from 'koa-static';
 import ratelimit from 'koa-ratelimit';
 import { v4 as uuidv4 } from 'uuid';
 import Koa from 'koa';
+import { Server } from 'boardgame.io/server';
+import { Buzzer } from './lib/store.js';
+import fs from 'fs';
 
-const Server = require('boardgame.io/server').Server;
-const Buzzer = require('./lib/store').Buzzer;
-
-// Create a Koa app instance (Fix for "app is not defined" error)
 const app = new Koa();
 
 const server = Server({
@@ -52,7 +51,7 @@ app.use(
     id: (ctx) => ctx.ip,
     max: 25, // Max 25 requests per window
     whitelist: (ctx) => {
-      return ctx.path.startsWith('/games') && ctx.path.includes(Buzzer.name);
+      return ctx.path.startsWith('/games') && ctx.path.includes('Buzzer');
     },
   })
 );
@@ -65,16 +64,27 @@ app.use(async (ctx, next) => {
 
 // Serve static files (frontend path must be defined)
 const FRONTEND_PATH = path.join(__dirname, '../client/build');
+console.log(`Serving static files from: ${FRONTEND_PATH}`);
 app.use(serve(FRONTEND_PATH));
 
 // Fallback route to serve index.html for client-side routing
+const indexPath = path.join(FRONTEND_PATH, 'index.html');
 app.use(async (ctx, next) => {
   await next();
   if (ctx.status === 404) {
-    await serve(FRONTEND_PATH)(
-      Object.assign(ctx, { path: 'index.html' }),
-      next
-    );
+    ctx.type = 'html';
+    ctx.body = fs.createReadStream(indexPath);
+  }
+});
+
+// Error-handling middleware
+app.use(async (ctx, next) => {
+  try {
+    await next();
+  } catch (err) {
+    ctx.status = err.status || 500;
+    ctx.body = { message: err.message };
+    console.error('Server Error:', err);
   }
 });
 
