@@ -16,7 +16,7 @@ const server = Server({
 });
 
 const PORT = process.env.PORT || 4001;
-const DEPLOYED_URL = 'https://localhost4001'; // Update this to match your deployment
+const DEPLOYED_URL = 'https://localhost:4001';
 
 // CORS settings to allow requests from the frontend
 app.use(async (ctx, next) => {
